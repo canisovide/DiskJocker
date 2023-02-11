@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Store/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'Store/css/r_reset.css' %}">
+    <link rel="stylesheet" href="{% static 'Store/css/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'Store/css/aos.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    {% comment %} <section id="base_pages">
+        <header class="px-4">
+            <nav class="row py-3">
+                <div class="col-md-2 logo-container">
+                    <div class="logo w-100" style="background-image: url('{% static 'Store/assets/dj_logo.png' %}');">
+                        
+                    </div>
+                </div>
+                <div class="col-md-7 row align-items-end">
+                    <div class="col-md-4">Home</div>
+                    <div class="col-md-4">Store</div>
+                    <div class="col-md-4">Mode</div>
+                </div>
+                <div class="col-md-3">
+                    <span><i class="bi bi-search"></i></span>
+                </div>
+            </nav>
+        </header>
+    </section> {% endcomment %}
+    <header id="base_pages">
+        <div class="d-flex container align-items-center">
+            <div class="logo-container me-auto">
+                <div class="logo-pages w-100 h-100" style="background-image: url('{% static 'Store/assets/dj_logo.png' %}');"></div>
+            </div>
+            <nav class="navbar order-last order-lg-0 pe-5" id="navbar">
+                <ul class="d-flex align-items-center pe-5">
+                    <li><a href="{% url 'Store:hello' %}" class="text-decoration-none text-dark fw-semibolder">Acceuil</a></li>
+                    <li><a href="{% url 'Store:listing' %}" class="active text-decoration-none text-dark fw-semibolder">Store</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark fw-semibolder">Mode</a></li>
+                </ul>
+            </nav>
+            <div class="search-link">
+                <span class="r-text-disk-trend fs-2 fw-semibolder">
+                    <i class="bi bi-search"></i>
+                </span>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock  %}
+    {% include 'Store/footer.html' %}
+    <script src="{% static 'Store/js/aos.js' %}"></script>
+    <script>
+        AOS.init()
+    </script>
+    <script src="{% static 'Store/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <script src="{% static 'Store/js/listing.js' %}"></script>
+</body>
+</html>

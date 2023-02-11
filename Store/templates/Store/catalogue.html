@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        {% for disque in disques %}
+            <div class="col-md-4 col-sm-6 col-lg-3">
+                <img src="{{disque.photo.url}}" class="img-fluid rounded">
+                <div class="row tms-3 container">
+                    <div class="col-md-2 text-center">
+                        <i class="bi bi-heart fs-6"></i>
+                    </div>
+                    <div class="col-md-8 text-center">
+                        {{disque.titre}}
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span class="badge mon-badge">
+                            {{disque.genre}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 %}<div class="clearfix py-2"></div>{% endif %}
+        {% empty %}
+           <div class="col-md-12 text-center">
+                Aucun album n'est disponoble ou n'été trouvé...
+           </div>
+        {% endfor %}
+    </div>
+</div>

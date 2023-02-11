@@ -1,0 +1,71 @@
+{% extends 'Store/base_pages.html' %}
+{% load static %}
+{% block content %}
+    <section class="container-fluid pt-5">
+       <div class="w-100 d-flex align-items-center justify-content-center">
+        <span class="r-text-disk-trend fs-6 fw-bolder" id="listing_typing_text"></span>
+       </div>
+    </section>
+    <section class="container-fluid pt-3">
+        <div class="w-100 d-flex align-items-center justify-content-center">
+            <div class="px-5 py-2 r-contact-us align-items-center justify-content-center">
+                <span>
+                    <a class="text-white text-decoration-none" href="#">Contactez-nous</a>
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid pt-2 pb-4">
+        <div class="w-100 d-flex align-items-center justify-content-center">
+            <div class="r-xl-played-badge">
+                <div class="r-xl-disk-played-circle-demo"></div>
+                <div class="r-xl-disk-played-icon d-flex align-items-center justify-content-center">
+                    <span class="text-light fs-1 fw-bolder">
+                        <i class="bi bi-headphones"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid pt-1 pb-3">
+        <div class="w-100 d-flex align-items-center justify-content-center">
+            <span class="r-text-disk-trend fs-6 fw-bolder">Notre super listing</span>
+        </div>
+    </section>
+    <section class="container-fluid pt-1">
+        {% include 'Store/list.html' with disques=page_obj %}
+    </section>
+    <section class="py-3">
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </section>
+    <section class="py-4 container">
+        <div class="w-100 d-flex align-items-center justify-content-start">
+            <span class="r-text-bresom fw-bolder">
+                Catégories
+            </span>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="w-100 d-flex align-items-center justify-content-center pb-2 r-text-disk-trend fw-bolder fs-6">
+            Découvrez nos disques suivant vos choix préferés.
+        </div>
+    </section>
+{% endblock %}
+
+

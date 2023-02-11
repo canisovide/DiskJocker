@@ -1,0 +1,128 @@
+{% extends 'Store/base.html' %}
+{% load static %}
+
+{% block 'content' %}
+    <section id="hero" class="container">
+        <div id="carouselExampleCaptions" class="carousel slide w-100 h-100" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner h-100 w-100">
+                {% for banner in banieres %}
+                    {% if forloop.first %}
+                        <div class="carousel-item active h-100 w-100">
+                            <div class="r-banner-index w-100 h-100 rounded" style="background-image:linear-gradient(to right bottom,#6035355e, #60353570),url({{banner.image.url}});"></div>
+                        </div>
+                    {% else %}
+                        <div class="carousel-item h-100 w-100">
+                            <div class="r-banner-index w-100 h-100 rounded" style="background-image:linear-gradient(to right bottom,#6035355e, #60353570),url({{banner.image.url}});"></div>
+                        </div>
+                    {% endif %}    
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <section>
+        <div class="kind py-5 d-flex align-items-center justify-content-center">
+            <div class="row">
+                <div class="col-md-4 gx-4 r-btn-new">
+                    <button class="btn r-btn text-white index-kind-btn" id="index_new">Nouveaux</button>
+                </div>
+                <div class="col-md-4 gx-4 r-btn-trend">
+                    <button class="btn r-btn text-white index-kind-btn" id="index_trend">Tendances</button>
+                </div>
+                <div class="col-md-4 gx-4 r-btn-favorite">
+                    <button class="btn r-btn text-white index-kind-btn" id="index_favorite">Favoris</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-new-disk index-kind-section" id="section_index_new">
+        <div class="py-4 w-100 d-flex align-items-center justify-content-center">
+            <span class="text-dark fw-bolder">Nouveautés</span>
+        </div>
+        {% include 'Store/list.html' with disques=disques_new %}
+    </section>
+    <section class="section-trend-disk index-kind-section d-none" id="section_index_trend">
+        <div class="py-4 w-100 d-flex align-items-center justify-content-center">
+            <span class="text-dark fw-bolder">Tendances</span>
+        </div>
+        {% include 'Store/list.html' with disques=disques_trend %}
+    </section>
+    <section class="section-favorite-disk index-kind-section d-none" id="section_index_favorite">
+        <div class="py-4 w-100 d-flex align-items-center justify-content-center">
+            <span class="text-dark fw-bolder">Favoris</span>
+        </div>
+        {% include 'Store/list.html' with disques=disques_favorite %}
+    </section>
+
+    <section class="py-4 mt-5 mb-2" id="joinus"  style="background-image:linear-gradient(to right bottom,#6035355e, #60353570),url({{banner_newsletter.image.url}});">
+        <div class="w-100 py-4 d-flex align-items-center justify-content-center">
+           <span class="text-white fw-bolder fs-3">Abonnez-vous à notre newsletter</span>
+        </div>
+        <div class="w-100 py-4 d-flex align-items-center justify-content-center">
+            <div class="text-white text-start fs-4">
+                Abonnez-vous à notre newsletter pour ne rien rater de nos <br>produits et nos activités.
+            </div>
+        </div>
+        <div class="container w-100">
+            <div class="w-100 py-4 d-flex align-items-center justify-content-end">
+                <form class="r-form-group py-3">
+                    <div class="r-before-email-form align-items-center d-flex px-4">
+                        <div><span class="fs-semibolder fs-5 text-white">Abonnez-vous à la newsletter</span> <span class="fs-5 fw-semibolder text-white"><i class="bi bi-arrow-right-circle-fill"></i></span></div>
+                    </div>
+                    <div class="r-form-div d-flex align-items-center justify-content-end d-none">
+                        <div class="r-gmail-btn">
+                            <span class="fs-3 fw-bolder text-white"><i class="bi bi-google"></i></span>
+                        </div>
+                        <input class="r-form-email fs-6 pe-2 py-3 fw-semibolder" type="email" placeholder="Votre email...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4 w-100 d-flex align-items-center justify-content-center" >
+        <span class="mt-5 mb-3 r-text-disk-trend fw-bolder">Decouvrez le super mixeur</span>
+    </section>
+    <section id="super_mixeur" style="background-image:linear-gradient(to right bottom,#6035355e, #60353570),url({{super_mixeur.image.url}});" class="py-4">
+        <div class="py-4 container w-100 d-flex align-items-center justify-content-end">
+            <div class="pt-4 r-text-disk-trend fw-bolder">
+                Avec le super mixeur rejoingnez le paradis musical avec vos morçeaux préférés, faites vibez vos amis et invités aux divers fêtes.Et surtout faites un malheur aux tampans de vos voisins tous les weekends.
+            </div>
+        </div>
+        <div class="w-100 d-flex justify-content-end align-items-center container py-4">
+            <div class="message-box text-white fw-bolder py-2 px-1 mb-4">Tester le super mixeur</div>
+        </div>
+        
+    </section>
+    <section>
+        <div class="w-100 py-5 part-services">
+            <div class="bg-white div-services">
+                <div class="d-flex align-items-center justify-content-center py-3">
+                    <span class="r-text-disk-trend fw-bolder">Nos services</span>
+                </div>
+                <div class="r-services pt-1 pb-5">
+                    <div class="r-service bg-primary">
+
+                    </div>
+                    <div class="r-service bg-primary"></div>
+                    <div class="r-service bg-primary"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock  %}

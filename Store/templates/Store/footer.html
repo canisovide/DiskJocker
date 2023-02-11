@@ -1,0 +1,31 @@
+{% load static %}
+<footer class="container py-4">
+    <div class="row">
+         <div class="col-md-5 d-flex justify-content-start align-items-end">
+            <div class="row">
+                <div class="col-md-1 gx-5">
+                    <span class="r-text-disk-trend fw-semibolder fs-5">
+                        <i class="bi bi-google"></i>
+                    </span>
+                </div>
+                <div class="col-md-1 gx-5">
+                    <span class="r-text-disk-trend fw-semibolder fs-5">
+                        <i class="bi bi-whatsapp"></i>
+                    </span>
+                </div>
+                <div class="col-md-1 gx-5">
+                    <span class="r-text-disk-trend fw-semibolder fs-5">
+                        <i class="bi bi-facebook"></i>
+                    </span>
+                </div>
+            </div>
+         </div>
+         <div class="col-md-2">
+            {% comment %} <img src="{% static 'Store/assets/dj_logo.png' %}" class="img-fluid"> {% endcomment %}
+            <div class="w-100 logo-footer" style="background-image: url('{% static 'Store/assets/dj_logo.png' %}');"></div>
+         </div>
+         <div class="col-md-5 d-flex justify-content-end align-items-end">
+            <span class="r-text-disk-trend">&copy; Copyright 2023</span>
+         </div>
+    </div>
+</footer>
